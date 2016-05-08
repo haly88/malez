@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_comun: MyString
+  nombre_cientifico: MyString
+  ciclo_id: 
+  crecimiento: MyString
+  espina: false
+  latex: false
+  tipo_de_tallo: MyString
+  peciolo: false
+  tipo_de_hoja: MyString
+
+two:
+  nombre_comun: MyString
+  nombre_cientifico: MyString
+  ciclo_id: 
+  crecimiento: MyString
+  espina: false
+  latex: false
+  tipo_de_tallo: MyString
+  peciolo: false
+  tipo_de_hoja: MyString

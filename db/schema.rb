@@ -11,9 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160508182340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "ciclos", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "malezas", force: :cascade do |t|
+    t.string   "nombre_comun"
+    t.string   "nombre_cientifico"
+    t.integer  "ciclo_id"
+    t.string   "crecimiento"
+    t.boolean  "espina",            default: false
+    t.boolean  "latex",             default: false
+    t.string   "tipo_de_tallo"
+    t.boolean  "peciolo",           default: false
+    t.string   "tipo_de_hoja"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "malezas", ["ciclo_id"], name: "index_malezas_on_ciclo_id", using: :btree
+
+  add_foreign_key "malezas", "ciclos"
 end

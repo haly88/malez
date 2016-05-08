@@ -1,0 +1,53 @@
+<%= form_for(@maleza) do |f| %>
+  <% if @maleza.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@maleza.errors.count, "error") %> prohibited this maleza from being saved:</h2>
+
+      <ul>
+      <% @maleza.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre_comun %><br>
+    <%= f.text_field :nombre_comun %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre_cientifico %><br>
+    <%= f.text_field :nombre_cientifico %>
+  </div>
+  <div class="field">
+    <%= f.label :ciclo_id %><br>
+    <%= f.text_field :ciclo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :crecimiento %><br>
+    <%= f.text_field :crecimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :espina %><br>
+    <%= f.check_box :espina %>
+  </div>
+  <div class="field">
+    <%= f.label :latex %><br>
+    <%= f.check_box :latex %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_de_tallo %><br>
+    <%= f.text_field :tipo_de_tallo %>
+  </div>
+  <div class="field">
+    <%= f.label :peciolo %><br>
+    <%= f.check_box :peciolo %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_de_hoja %><br>
+    <%= f.text_field :tipo_de_hoja %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
