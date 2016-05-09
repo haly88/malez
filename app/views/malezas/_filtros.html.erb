@@ -1,0 +1,5 @@
+<%= form_tag malezas_path, :method => 'get', :remote => true do %>
+	<%= label_tag 'nombre_comun' %>
+	<%= text_field_tag 'nombre_comun', nil %>
+	<%= submit_tag 'Aceptar' %>
+<% end %>

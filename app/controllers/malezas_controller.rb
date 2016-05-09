@@ -4,7 +4,22 @@ class MalezasController < ApplicationController
   # GET /malezas
   # GET /malezas.json
   def index
-    @malezas = Maleza.all
+    params.reject!{|k,v| v.empty?} if params
+    nombre_comun =  ActiveRecord::Base.connection.quote('%'+params[:nombre_comun].to_s+'%')
+
+    sql = "select 
+      malezas.nombre_comun as Nombre_comun,
+      malezas.nombre_cientifico as Nombre_cientifico
+      from malezas
+      where
+      (#{nombre_comun} is NULL OR malezas.nombre_comun ilike #{nombre_comun})"
+
+    @resultado = ActiveRecord::Base.connection.exec_query(sql)
+
+    respond_to do |format|
+      format.html {render 'informes/index'}
+      format.js {render 'informes/index'}
+    end
   end
 
   # GET /malezas/1
